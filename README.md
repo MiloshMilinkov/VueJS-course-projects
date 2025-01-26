@@ -5,12 +5,10 @@ This project is part of a larger course to develop my knowledge of **Vue.js**. T
 
 ## Features
 - Learn and apply **Vue.js 2** scripting.
-- Transition to **Vue.js 3** with the **Composition API**.
 - Gain hands-on experience with **Vue.js core concepts**.
 
 ## Project Phases
 1. **Phase 1:** Develop the game using **Vue.js 2** and the **Options API**.
-2. **Phase 2:** Refactor and enhance the codebase using **Vue.js 3** and the **Composition API**.
 
 ## About the Game
 The Monster Slayer game is a turn-based battle simulator where:
