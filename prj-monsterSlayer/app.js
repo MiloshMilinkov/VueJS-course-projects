@@ -7,9 +7,9 @@ const app = Vue.createApp({
         return {
           playerHealth: 100,
           monsterHealth: 100,
-          currentRound: 0,
           winner: null,
-          logMessages: []
+          logMessages: [],
+          playerMana: [1,2,3,4]
         };
     },
     computed:{
@@ -26,7 +26,7 @@ const app = Vue.createApp({
             return {width: this.playerHealth +'%'}
         },
         mayUseSpecialAttack(){
-            return this.currentRound % 3 !== 0;
+            return this.playerMana.length === 0;
         }
     },
     watch:{
@@ -49,26 +49,25 @@ const app = Vue.createApp({
     },
     methods: {
         attackMonster(){
-            this.currentRound ++;
             const attackValue = getRandomValue(5,12);
             this.monsterHealth = this.monsterHealth - attackValue;
             this.addLogMesssage('player', 'attack', attackValue);
             this.attackPlayer();
         },
         attackPlayer(){
-            const attackValue = getRandomValue(8,15);
+            const attackValue = getRandomValue(7,14);
             this.playerHealth = this.playerHealth - attackValue;
             this.addLogMesssage('monster', 'attack', attackValue);
         },
         specialAttackMonster(){
-            this.currentRound ++;
+            this.playerMana.splice(-1);
             const attackValue = getRandomValue(10,25);
             this.monsterHealth = this.monsterHealth - attackValue;
             this.addLogMesssage('player', 'attack', attackValue);
             this.attackPlayer();
         },
         healPlayer(){
-            this.currentRound ++;
+            this.playerMana.splice(-1);
             const healValue = getRandomValue(10,20);
             if(this.playerHealth + healValue > 100)
                 this.playerHealth = 100;
@@ -80,9 +79,9 @@ const app = Vue.createApp({
         startGame(){
             this.playerHealth = 100,
             this.monsterHealth =100,
-            this.currentRound = 0,
             this.winner = null,
-            this.logMessages = []
+            this.logMessages = [],
+            this.playerMana = [1,2,3]
         },
         surrender(){
             this.winner = 'monster';

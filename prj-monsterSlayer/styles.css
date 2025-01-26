@@ -41,6 +41,7 @@ section {
 
 .container {
   text-align: center;
+  align-items: center;
   padding: 0.5rem;
   margin: 1rem auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -116,4 +117,15 @@ button:disabled {
 
 .log--heal {
   color: green;
+}
+.manabar{
+  padding: 0;
+}
+.player--mana {
+  display: inline-block;
+  background-color: #7700ff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
 }

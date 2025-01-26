@@ -28,6 +28,10 @@
         <div class="healthbar">
           <div class="healthbar__value" :style="playerBarStyles"></div>
         </div>
+        <h2>Your Mana</h2>
+        <ul class="manabar">
+          <li v-for="mana in playerMana" class="player--mana"></li>
+        </ul>
       </section>
       <section class="container" v-if="winner">
         <h2 >Game Over!</h2>
@@ -39,7 +43,7 @@
       <section id="controls" v-else>
         <button @click="attackMonster">ATTACK</button>
         <button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">SPECIAL ATTACK</button>
-        <button :disabled="playerHealth >= 100" @click="healPlayer">HEAL</button>
+        <button :disabled="playerHealth >= 100 || mayUseSpecialAttack" @click="healPlayer">HEAL</button>
         <button @click="surrender">SURRENDER</button>
       </section>
       <section id="log" class="container">
